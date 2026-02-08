@@ -182,14 +182,23 @@ const projects = [
       "DEX accounting for the majority of daily trading volume on the Taraxa network. Successfully exited.",
     tech: ["Solidity", "React", "Node.js", "Web3.js"],
     status: "exited",
-    url: "https://taraswap.com",
+    url: "https://taraswap.app",
+  },
+  {
+    name: "Rand.app",
+    tagline: "DeFi yield platform.",
+    description:
+      "Regulated and compliant since 2021, Earn up to 6,50% on your savings, Grow your balance daily with industry-leading interest and the highest standards of security.",
+    tech: ["React", "Node.js", "Solidity", "Foundry", "Golang", "Low Latency", "Multi-Threaded", "Microservices", "Docker", "Kubernetes"],
+    status: "shipped",
+    url: "https://rand.app",
   },
   {
     name: "Sophon Wallet",
     tagline: "zkSync L2 Wallet with Account Abstraction",
     description:
       "Consumer-facing wallet with seamless auth, account abstraction, and wallet-as-a-service for 15+ integrated DApps.",
-    tech: ["React", "TypeScript", "zkSync", "Solidity"],
+    tech: ["React", "TypeScript", "zkSync", "Solidity", "Foundry"],
     status: "shipped",
     url: "https://sophon.xyz",
   },
@@ -198,18 +207,45 @@ const projects = [
     tagline: "Blockchain Explorer & Developer Tools",
     description:
       "Full-featured chain explorer, faucet, community site, and developer SDKs for the Taraxa L1 ecosystem.",
-    tech: ["React", "Node.js", "MongoDB", "Elasticsearch"],
+    tech: ["React", "Node.js", "MongoDB", "Elasticsearch", "RabbitMQ", "Golang", "Microservices", "Docker", "Kubernetes"],
     status: "shipped",
     url: "https://explorer.taraxa.io",
+  },
+  {
+    name: "Taraxa indexer",
+    tagline: "Taraxa indexer for the Taraxa Network",
+    description:
+      "Taraxa indexer for the Taraxa network. Built with Golang and low latency multi-threaded architecture.",
+    tech: ["Golang", "Low Latency", "Multi-Threaded", "Microservices", "Docker", "Kubernetes"],
+    status: "shipped",
+    url: "https://indexer.taraxa.io",
+  },
+  {
+    name: "Taraxa Ficus Root Bridge",
+    tagline: "Ficus Root Bridge for the Taraxa Network",
+    description:
+      "Ficus Root Bridge for the Taraxa network. Built with React and Node.js.",
+    tech: ["React", "Node.js", "Solidity", "Foundry"],
+    status: "shipped",
+    url: "https://bridge.taraxa.io",
   },
   {
     name: "Hype App",
     tagline: "Social Listening & On-Chain Analytics",
     description:
       "Real-time social listening platform with Elasticsearch backend processing on-chain and social data streams.",
-    tech: ["Python", "Elasticsearch", "React", "Node.js"],
+    tech: ["Python", "Elasticsearch", "React", "Node.js", "Solidity"],
     status: "shipped",
-    url: "https://community.taraxa.io",
+    url: "https://hype.taraxa.io",
+  },
+  {
+    name: "Community Site",
+    tagline: "Community Site for the Taraxa Network",
+    description:
+      "Community site for the Taraxa network. Built with React and Node.js.",
+    tech: ["React", "Node.js"],
+    status: "shipped",
+    url: "https://taraxa.io",
   },
 ];
 
