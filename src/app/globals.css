@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0e14;
+  --color-foreground: #c5c8c6;
+  --color-green: #39ff14;
+  --color-green-dim: #00cc00;
+  --color-green-dark: #0a3d0a;
+  --color-amber: #f0c674;
+  --color-blue: #81a2be;
+  --color-red: #cc6666;
+  --color-purple: #b294bb;
+  --color-cyan: #8abeb7;
+  --color-gray: #6a737d;
+  --color-gray-light: #969896;
+  --color-surface: #0d1117;
+  --color-surface-light: #161b22;
+  --color-border: #1a2332;
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-green-dark) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-green-dark);
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--color-green);
+  color: var(--color-background);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-mono);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.cursor-blink::after {
+  content: "\2588";
+  color: var(--color-green);
+  animation: blink 1s step-end infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes wink {
+  0% { clip-path: inset(0 0 0 0); transform: scale(1); }
+  30% { clip-path: inset(35% 0 35% 0); transform: scaleX(1.03); }
+  50% { clip-path: inset(35% 0 35% 0); transform: scaleX(1.03); }
+  80% { clip-path: inset(0 0 0 0); transform: scale(1); }
+  100% { clip-path: inset(0 0 0 0); transform: scale(1); }
+}
+
+.wink {
+  animation: wink 0.4s ease-in-out;
+}
+
+.scanline::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(57, 255, 20, 0.03);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 100;
+}
