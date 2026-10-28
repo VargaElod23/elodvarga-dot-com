@@ -5,6 +5,9 @@ import { getAllPosts } from "@/lib/writing";
 export const metadata: Metadata = {
   title: "Writing | Előd Varga",
   description: "Long-form write-ups of things Előd Varga built and is proud of.",
+  alternates: {
+    types: { "application/rss+xml": "https://0xelod.com/writing/rss.xml" },
+  },
 };
 
 export default function WritingIndex() {
