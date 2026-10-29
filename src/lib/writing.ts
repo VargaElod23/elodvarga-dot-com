@@ -11,6 +11,7 @@ export interface PostMeta {
   slug: string;
   title: string;
   summary: string;
+  /** Calendar day, YYYY-MM-DD. */
   date: string;
   tags: string[];
   draft: boolean;
@@ -19,6 +20,16 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   content: string;
+}
+
+// Frontmatter dates are calendar days; keep them as YYYY-MM-DD (UTC) so the
+// build machine's timezone can't shift them. A bad date fails the build loudly.
+function parseDate(value: unknown, file: string): string {
+  const date = value instanceof Date ? value : new Date(String(value ?? ""));
+  if (value == null || Number.isNaN(date.getTime())) {
+    throw new Error(`content/writing/${file}: missing or invalid "date" frontmatter`);
+  }
+  return date.toISOString().slice(0, 10);
 }
 
 function readPost(file: string): Post {
@@ -30,7 +41,7 @@ function readPost(file: string): Post {
     slug,
     title: data.title ?? slug,
     summary: data.summary ?? "",
-    date: data.date ? new Date(data.date).toISOString() : "",
+    date: parseDate(data.date, file),
     tags: data.tags ?? [],
     draft: data.draft ?? false,
     readingMinutes: Math.max(1, Math.round(words / 230)),

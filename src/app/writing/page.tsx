@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/writing";
+import { formatPostDate } from "@/lib/format-date";
 
 export const metadata: Metadata = {
   title: "Writing | Előd Varga",
@@ -50,11 +51,7 @@ export default function WritingIndex() {
                   {post.title}
                 </Link>
                 <div className="text-gray text-xs mt-1">
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}{" "}
+                  {formatPostDate(post.date)}{" "}
                   · {post.readingMinutes} min
                   {post.draft && <span className="text-red"> [DRAFT]</span>}
                 </div>

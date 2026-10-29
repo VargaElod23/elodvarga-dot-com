@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost } from "@/lib/writing";
 import Markdown from "../markdown";
+import { formatPostDate } from "@/lib/format-date";
 
 export function generateStaticParams() {
   return getAllPosts().map(({ slug }) => ({ slug }));
@@ -56,11 +57,7 @@ export default async function PostPage({
             <p className="mt-3 text-gray-light">{post.summary}</p>
             <div className="mt-4 flex flex-wrap items-center gap-1.5 text-xs">
               <span className="text-gray">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}{" "}
+                {formatPostDate(post.date, "long")}{" "}
                 · {post.readingMinutes} min read
               </span>
               {post.draft && <span className="text-red">[DRAFT]</span>}

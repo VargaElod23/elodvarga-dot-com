@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import type { PostMeta } from "@/lib/writing";
+import { formatPostDate } from "@/lib/format-date";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // Change this to your Medium username
@@ -820,11 +821,7 @@ function WritingSection() {
               <div className="flex items-start justify-between gap-4">
                 <span className="text-green font-bold">{post.title}</span>
                 <span className="text-gray text-xs whitespace-nowrap">
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
+                  {formatPostDate(post.date)}
                 </span>
               </div>
               <p className="text-foreground text-sm mt-2 leading-relaxed">

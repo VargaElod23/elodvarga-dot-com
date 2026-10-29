@@ -47,8 +47,9 @@ const components: Components = {
     </blockquote>
   ),
   hr: () => <hr className="my-10 border-border" />,
+  // Fenced blocks have a language class or span lines; everything else is inline.
   code: ({ className, children }) =>
-    className ? (
+    className || String(children).includes("\n") ? (
       <code className={className}>{children}</code>
     ) : (
       <code className="bg-surface-light px-1.5 py-0.5 text-cyan text-[0.9em]">
