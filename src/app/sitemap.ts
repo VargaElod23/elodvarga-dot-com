@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/writing";
 
 // ─── Sitemap ─────────────────────────────────────────────────────────────────
 
-const SITE_URL = "https://0xelod.com";
+const SITE_URL = "https://www.elodvarga.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts().filter((post) => !post.draft);
