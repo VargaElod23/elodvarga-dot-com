@@ -3,7 +3,7 @@ title: "Teaching Claude to talk to my iOS app"
 summary: "An automated voice-to-voice QA loop for a voice-first iOS assistant: macOS `say` into the simulator mic, structured logs as ground truth, Claude as the judge, and parallel simulator lanes overnight."
 date: 2026-10-27
 tags: [agents, ios, voice, testing, claude-code, orca]
-draft: true
+draft: false
 ---
 
 The product I'm working on is a voice-first assistant with an iOS app. You talk to it; it books things, sets reminders, finds people to fix your house. Text-level evals cover the model, but they never hear the app. They don't catch the speech-to-text mishearing you, the card that flashes for half a second, or the session that drops after fifteen minutes.
@@ -120,7 +120,7 @@ The general lesson: when the agent hits a wall in a test harness, let it *tell* 
 
 ## Where Orca fits
 
-Orca hosts all of this: each lane is a pane I can watch, every worktree's build is isolated, and `orca search` finds any past test session in milliseconds. Its emulator commands weren't part of the rounds above (those used Xcode's tools and AXe). They are the tap layer I'm moving to, because they cover exactly the part that broke the most:
+Orca hosts all of this: the lanes run on always-on Mac minis, each one a pane I can watch [from my phone](/writing/orca-coding-agent-swarms), every worktree's build is isolated, and `orca search` finds any past test session in milliseconds. Its emulator commands weren't part of the rounds above (those used Xcode's tools and AXe). They are the tap layer I'm moving to, because they cover exactly the part that broke the most:
 
 ```bash
 orca emulator attach <udid> --json        # ~5.6 s; makes it the worktree's active device
