@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Writing | Előd Varga",
   description: "Long-form write-ups of things Előd Varga built and is proud of.",
   alternates: {
-    types: { "application/rss+xml": "https://0xelod.com/writing/rss.xml" },
+    types: { "application/rss+xml": "https://www.elodvarga.com/writing/rss.xml" },
   },
 };
 
